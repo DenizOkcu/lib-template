@@ -2,13 +2,12 @@
 
 #### A starting point for writing JavaScript libraries.
 
-Rollup is used to bundle JavaScript modules and styles (css or scss) to the `dist` folder.
+Rollup is used to bundle JavaScript modules and styles (css or scss).
 
-It comes with
+It comes preconfigured with
 
-- [Jest](https://jestjs.io/),
-- [normalize.css](https://github.com/necolas/normalize.css/),
-- [skeleton](http://getskeleton.com/) and
+- [Rollup](https://rollupjs.org/),
+- [Jest](https://jestjs.io/) and
 - [airbnb .jshintrc](https://github.com/airbnb/javascript)
 
 write
@@ -17,19 +16,19 @@ write
 - scss in the `styles` folder and
 - tests in the `test` folder
 
-install the dev dependencies with
+install the dev dependencies:
 
 ```bash
 npm i
 ```
 
-run minification and browsersync (watches file changes) with
+run minification and browsersync (watches file changes):
 
 ```bash
 npm run dev
 ```
 
-run tests (incl. coverage) with
+run tests (incl. coverage):
 
 ```bash
 npm test
