@@ -1,27 +1,29 @@
-import browsersync from 'rollup-plugin-browsersync';
-import commonjs from 'rollup-plugin-commonjs';
-import resolve from 'rollup-plugin-node-resolve';
-import postcss from 'rollup-plugin-postcss';
-import { uglify } from 'rollup-plugin-uglify';
+
+import babel from "rollup-plugin-babel";
+import browsersync from "rollup-plugin-browsersync";
+import postcss from "rollup-plugin-postcss";
+import { uglify } from "rollup-plugin-uglify";
 
 export default [
   {
-    input: 'src/main.js',
+    input: "src/main.js",
     output: {
-      name: 'Lib',
-      file: 'dist/main.js',
-      format: 'iife',
-      sourcemap: true,
+      name: "Lib",
+      file: "dist/main.js",
+      format: "iife",
+      sourcemap: true
     },
     plugins: [
-      resolve(), // so Rollup can find `ms`
-      commonjs(), // so Rollup can convert `ms` to an ES module
+      babel({
+        exclude: "node_modules/**",
+        presets: ["@babel/preset-env"]
+      }),
       postcss({
         extract: true,
-        minimize: true,
+        minimize: true
       }),
       uglify(),
-      browsersync({ server: '.' }),
-    ],
-  },
+      browsersync()
+    ]
+  }
 ];
