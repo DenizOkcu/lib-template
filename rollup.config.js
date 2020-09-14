@@ -1,7 +1,7 @@
 import babel from "@rollup/plugin-babel";
 import browsersync from "rollup-plugin-browsersync";
 import postcss from "rollup-plugin-postcss";
-import { uglify } from "rollup-plugin-uglify";
+import { terser } from "rollup-plugin-terser";
 
 export default [
   {
@@ -21,7 +21,7 @@ export default [
         extract: true,
         minimize: true,
       }),
-      uglify(),
+      terser(),
       browsersync(),
     ],
   },
