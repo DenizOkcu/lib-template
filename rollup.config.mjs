@@ -1,11 +1,11 @@
-import babel from "@rollup/plugin-babel";
 import browsersync from "rollup-plugin-browsersync";
 import postcss from "rollup-plugin-postcss";
 import { terser } from "rollup-plugin-terser";
+import typescript from '@rollup/plugin-typescript';
 
 export default [
   {
-    input: "src/main.js",
+    input: "src/main.ts",
     output: {
       name: "Lib",
       file: "dist/main.js",
@@ -13,10 +13,7 @@ export default [
       sourcemap: true,
     },
     plugins: [
-      babel({
-        exclude: "node_modules/**",
-        presets: ["@babel/preset-env"],
-      }),
+      typescript({ compilerOptions: {lib: ["es5", "es6", "dom"], target: "es5"}}),
       postcss({
         extract: true,
         minimize: true,

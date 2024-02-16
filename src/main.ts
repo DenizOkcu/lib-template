@@ -4,6 +4,10 @@ import "../styles/main.scss";
 // example import from src/sum.js - delete before you start
 import { sum } from "./sum";
 
-export default function Lib() {
+interface Lib {
+  add: (a: number, b: number) => number;
+}
+
+export default function Lib(): Lib {
   return { add: sum };
 }
